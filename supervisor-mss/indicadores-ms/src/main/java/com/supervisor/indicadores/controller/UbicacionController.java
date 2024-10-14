@@ -18,7 +18,7 @@ import java.lang.reflect.InaccessibleObjectException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/ubicaciones")
+@RequestMapping("/ubicaciones")
 @RequiredArgsConstructor
 public class UbicacionController {
 

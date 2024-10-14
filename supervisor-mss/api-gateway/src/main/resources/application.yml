@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    loadbalancer:
+      ribbon:
+        enables: true
+    gateway:
+      mvc:
+        routes:
+          - id: indicadores-ms
+            uri: lb://INDICADORES-MS
+            predicates:
+              - Path=/api/v1/indicadores/**
+
+

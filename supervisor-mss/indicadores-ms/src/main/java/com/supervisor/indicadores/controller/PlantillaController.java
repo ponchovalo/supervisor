@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/plantillas")
+@RequestMapping("/plantillas")
 @RequiredArgsConstructor
 public class PlantillaController {
 

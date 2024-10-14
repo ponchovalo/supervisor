@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/infrastructure/discovery-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/supervisor-mss/api-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/supervisor-mss/indicadores-ms/src/main/java" charset="UTF-8" />
   </component>
 </project>
