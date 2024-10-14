@@ -5,7 +5,7 @@ spring:
   application:
     name: indicadores-ms
   datasource:
-    url: jdbc:postgresql://localhost:5432/indicadoresdb
+    url: jdbc:postgresql://localhost:5434/indicadoresdb
     username: ponchovalo
     password: admin
     driver-class-name: org.postgresql.Driver

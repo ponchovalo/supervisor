@@ -3,14 +3,28 @@ services:
     container_name: indicadores-db
     image: postgres:15.1
     ports:
-      - "5432:5432"
+      - "5434:5432"
     volumes:
-      - ./docker-storage/postgres-db:/var/lib/postgresql/data
+      - ./docker-storage/indicadores-db:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: indicadoresdb
       POSTGRES_USER: ponchovalo
       POSTGRES_PASSWORD: admin
-  
+
+  dbAuth:
+    container_name: auth-db
+    image: postgres:15.1
+    ports:
+      - "5435:5432"
+    volumes:
+      - ./docker-storage/auth-db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: authdb
+      POSTGRES_USER: ponchovalo
+      POSTGRES_PASSWORD: admin
+
+
+
   pgAdmin:
     container_name: pgadmin
     depends_on:
