@@ -1,0 +1,48 @@
+services:
+  db:
+    container_name: indicadores-db
+    image: postgres:15.1
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./docker-storage/postgres-db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: indicadoresdb
+      POSTGRES_USER: ponchovalo
+      POSTGRES_PASSWORD: admin
+  
+  pgAdmin:
+    container_name: pgadmin
+    depends_on:
+      - db
+    image: dpage/pgadmin4:6.17
+    ports:
+      - "8090:80"
+    volumes:
+      - ./docker-storage/pgadmin:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_PASSWORD: stan
+      PGADMIN_DEFAULT_EMAIL: ponchovalo@outlook.com
+  
+#  vault:
+#    container_name: vault
+#    image: hashicorp/vault:1.17.1
+#    ports:
+#      - "8200:8200"
+#    volumes:
+#      - ./vault/file:/vault/file:rw
+#      - ./vault/data:/vault/data:rw
+#      - ./vault/config:/vault/config:rw
+#    environment:
+#      - VAULT_ADDR=http://localhost:8200
+#      - VAULT_API_ADDR=http://localhost:8200
+#      - VAULT_ADDRESS=http://localhost:8200
+      # VAULT_UI: true
+      # VAULT_TOKEN:
+#    restart:
+#      always
+#    cap_add:
+#      - IPC_LOCK
+#    entrypoint: vault server -config /vault/config/config.hcl
+
+

@@ -1,0 +1,22 @@
+#server:
+#  servlet:
+#    context-path: /api/v1/
+spring:
+  application:
+    name: indicadores-ms
+  datasource:
+    url: jdbc:postgresql://localhost:5432/indicadoresdb
+    username: ponchovalo
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+
