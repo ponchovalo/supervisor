@@ -2,9 +2,9 @@ spring:
   application:
     name: auth-ms
   datasource:
-    url: jdbc:postgresql://localhost:5435/book_social_network
-    username: username
-    password: password
+    url: jdbc:postgresql://localhost:5435/authdb
+    username: ponchovalo
+    password: admin
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -21,4 +21,8 @@ application:
   security:
     jwt:
       secret-key: F15C2727FAFB863E5B8CD4ADFF89B
-    expiration: 8640000
+      expiration: 8640000
+server:
+  port: 8089
+  servlet:
+    context-path: /api/v1/

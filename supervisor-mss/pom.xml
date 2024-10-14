@@ -14,6 +14,8 @@
 
     <modules>
         <module>indicadores-ms</module>
+        <module>api-gateway</module>
+        <module>auth-ms</module>
     </modules>
 
 </project>
