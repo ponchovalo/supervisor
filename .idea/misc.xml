@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/infrastructure/dicovery-service/pom.xml" />
         <option value="$PROJECT_DIR$/infrastructure/discovery-service/pom.xml" />
         <option value="$PROJECT_DIR$/supervisor-mss/api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/supervisor-mss/auth-ms/pom.xml" />
       </list>
     </option>
   </component>
