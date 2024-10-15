@@ -1,7 +1,5 @@
 package com.supervisor.authms.auth;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,5 +23,4 @@ public class RegistrationRequest {
     private String area;
     private String position;
     private String shift;
-
 }
