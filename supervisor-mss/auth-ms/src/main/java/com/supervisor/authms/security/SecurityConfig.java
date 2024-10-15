@@ -2,6 +2,7 @@ package com.supervisor.authms.security;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.flogger.Flogger;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -22,13 +23,17 @@ public class SecurityConfig {
     private final JwtFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
 
-
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-
-//        http.authorizeHttpRequests(req -> {
-//                req.requestMatchers("/auth/register").permitAll().anyRequest();
-//        });
+                .cors(Customizer.withDefaults())
+                .csrf(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(req -> {
+                    req.requestMatchers(
+                            "/auth/**"
+                    ).permitAll();
+                    req.anyRequest().authenticated();
+                });
 
 
 //        http
@@ -43,13 +48,6 @@ public class SecurityConfig {
 //                .authenticationProvider(authenticationProvider)
 //                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 //        return http.build();
-//        return http
-//                .csrf(AbstractHttpConfigurer::disable)
-//                .authorizeHttpRequests(req ->
-//                        req.requestMatchers(
-//                                "/auth/register"
-//                        ).permitAll().anyRequest())
-//                .build();
         return http.build();
     }
 }

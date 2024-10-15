@@ -32,10 +32,9 @@ public class JwtFilter extends OncePerRequestFilter {
 
         if(request.getServletPath().contains("/api/v1/auth")){
             filterChain.doFilter(request, response);
-            logger.info(request);
             return;
         }
-        logger.info(request);
+
         final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
         final String jwt;
         final String username;

@@ -20,8 +20,16 @@ public class AuthController {
     public ResponseEntity<?> register(
             @RequestBody @Valid RegistrationRequest request
     ){
-        log.info(String.valueOf(request));
         return ResponseEntity.accepted().build();
+
+    }
+
+    @PostMapping("/test")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public String registerTest(
+            @RequestBody RegistrationRequest request
+    ){
+        return "request";
 
     }
 

@@ -24,6 +24,5 @@ public class AuthService {
 //                .email(request.getEmail())
 //                .area(Area.REDES_INFORMATICA)
 //                .build();
-        System.out.println(request);
     }
 }
