@@ -1,6 +1,7 @@
 package com.supervisor.authms.security;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.flogger.Flogger;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.Customizer;
@@ -24,16 +25,31 @@ public class SecurityConfig {
 
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .cors(Customizer.withDefaults())
-                .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(req ->
-                        req.requestMatchers(
-                                "/auth/**"
-                        ).permitAll().anyRequest().authenticated())
-                .sessionManagement(session ->
-                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+
+//        http.authorizeHttpRequests(req -> {
+//                req.requestMatchers("/auth/register").permitAll().anyRequest();
+//        });
+
+
+//        http
+//                .cors(Customizer.withDefaults())
+//                .csrf(AbstractHttpConfigurer::disable)
+//                .authorizeHttpRequests(req ->
+//                        req.requestMatchers(
+//                                "/auth/register"
+//                        ).permitAll().anyRequest().authenticated());
+//                .sessionManagement(session ->
+//                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//                .authenticationProvider(authenticationProvider)
+//                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+//        return http.build();
+//        return http
+//                .csrf(AbstractHttpConfigurer::disable)
+//                .authorizeHttpRequests(req ->
+//                        req.requestMatchers(
+//                                "/auth/register"
+//                        ).permitAll().anyRequest())
+//                .build();
         return http.build();
     }
 }
