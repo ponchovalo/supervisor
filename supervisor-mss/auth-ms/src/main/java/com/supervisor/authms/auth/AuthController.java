@@ -1,6 +1,8 @@
 package com.supervisor.authms.auth;
 
 
+import com.supervisor.authms.user.User;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +18,8 @@ public class AuthController {
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ResponseEntity<?> register(
-            //@RequestBody @Valid RegistrationRequest request
-    ){
-        return ResponseEntity.accepted().build();
+    public RegistrationRequest register(@RequestBody RegistrationRequest request){
+        return request;
     }
 
     @PostMapping("/test")

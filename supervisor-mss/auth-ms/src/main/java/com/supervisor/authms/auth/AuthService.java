@@ -14,15 +14,18 @@ public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public void register(RegistrationRequest request){
-
-//        var user = User.builder()
-//                .username(request.getUsername())
-//                .password(passwordEncoder.encode(request.getPassword()))
-//                .firstName(request.getFirstName())
-//                .lastName(request.getLastName())
-//                .email(request.getEmail())
-//                .area(Area.REDES_INFORMATICA)
-//                .build();
+    public User register(RegistrationRequest request){
+        return User.builder()
+                .username(request.getUsername())
+                .password(request.getPassword())
+                .firstName(request.getFirstName())
+                .lastName(request.getLastName())
+                .email(request.getEmail())
+                .accountLocked(false)
+                .enabled(true)
+                .area(request.getArea())
+                .position(request.getPosition())
+                .shift(request.getShift())
+                .build();
     }
 }
