@@ -48,9 +48,9 @@ public class User implements UserDetails, Principal {
     private boolean enabled;
 
     // Datos para la empresa
-    private Area area;
+    private String area;
     private String position;
-    private Shift shift;
+    private String shift;
 
     @ManyToMany(fetch=FetchType.EAGER)
     @JsonIgnore

@@ -21,7 +21,6 @@ public class AuthController {
             @RequestBody @Valid RegistrationRequest request
     ){
         return ResponseEntity.accepted().build();
-
     }
 
     @PostMapping("/test")
