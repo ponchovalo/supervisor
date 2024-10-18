@@ -1,4 +1,4 @@
-package com.supervisor.authms.auth;
+package com.supervisor.authms.role;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -6,16 +6,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/role")
 @RequiredArgsConstructor
-public class AuthController {
+public class RoleController {
 
-    private final AuthService authService;
+    private final RoleService roleService;
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public ResponseEntity<?> register(@RequestBody RegistrationRequest request){
-        authService.register(request);
+    public ResponseEntity<?> registerRole(@RequestBody RoleRequest request) {
+        roleService.register(request);
         return ResponseEntity.accepted().build();
     }
 

@@ -1,8 +1,6 @@
 package com.supervisor.authms.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.supervisor.authms.enums.Area;
-import com.supervisor.authms.enums.Shift;
 import com.supervisor.authms.role.Role;
 import jakarta.persistence.*;
 import lombok.*;
