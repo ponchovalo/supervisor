@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Builder
@@ -39,4 +41,8 @@ public class RegistrationRequest {
     @NotBlank(message = "Shift is mandatory")
     @NotNull(message = "Shift is mandatory")
     private String shift;
+
+    @NotBlank
+    @NotNull
+    private List<String> roles;
 }
