@@ -3,17 +3,14 @@ server:
 spring:
   application:
     name: api-gateway
-  cloud:
-    loadbalancer:
-      ribbon:
-        enables: true
-    gateway:
-      mvc:
-        routes:
-          - id: indicadores-ms
-            uri: lb://INDICADORES-MS
-            predicates:
-              - Path=/api/v1/indicadores/**
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 8640000
+
+
 
 
 

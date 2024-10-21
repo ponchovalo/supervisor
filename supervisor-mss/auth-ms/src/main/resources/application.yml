@@ -25,4 +25,4 @@ application:
 server:
   port: 8089
   servlet:
-    context-path: /api/v1/
+    context-path: /api/v1/identity
