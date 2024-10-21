@@ -83,12 +83,11 @@ public class GlobalExceptionHandler {
                 .status(INTERNAL_SERVER_ERROR)
                 .body(
                         ExceptionResponse.builder()
-                                .businessExceptionDescription("Internal Server Error, contac the administrator")
+                                .businessExceptionDescription("Internal Server Error, contact the administrator")
                                 .error(exp.getMessage())
                                 .build()
                 );
     }
-
 
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<ExceptionResponse> handleException(DataIntegrityViolationException exp) {
@@ -96,8 +95,8 @@ public class GlobalExceptionHandler {
                 .status(BAD_REQUEST)
                 .body(
                         ExceptionResponse.builder()
-                                .businessExceptionDescription("El usuario ya existe")
-                                .error("Error, entidad duplicada")
+                                .businessExceptionDescription("User already exist")
+                                .error("Error, entity duplicate")
                                 .build()
                 );
     }
