@@ -1,7 +1,6 @@
 package com.supervisor.authms.security;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.flogger.Flogger;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -28,27 +27,15 @@ public class SecurityConfig {
         http
                 .cors(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(req -> {
+                .authorizeHttpRequests(req ->
                     req.requestMatchers(
-                            "/auth/**",
-                            "/role/**"
-                    ).permitAll();
-                    req.anyRequest().authenticated();
-                });
-
-
-//        http
-//                .cors(Customizer.withDefaults())
-//                .csrf(AbstractHttpConfigurer::disable)
-//                .authorizeHttpRequests(req ->
-//                        req.requestMatchers(
-//                                "/auth/register"
-//                        ).permitAll().anyRequest().authenticated());
-//                .sessionManagement(session ->
-//                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .authenticationProvider(authenticationProvider)
-//                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-//        return http.build();
+                            "/auth/register",
+                            "/auth/authenticate",
+                            "/role/register"
+                    ).permitAll().anyRequest().authenticated())
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authenticationProvider(authenticationProvider)
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 }

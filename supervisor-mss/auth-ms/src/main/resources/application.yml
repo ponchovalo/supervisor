@@ -9,7 +9,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: false
+    show-sql: true
     properties:
       hibernate:
         format_sql: true
@@ -20,7 +20,7 @@ spring:
 application:
   security:
     jwt:
-      secret-key: 76c11a6881e393a2a902a51a19b24495e1a85524d329ce5a3ffddf5e422360bd
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
       expiration: 8640000
 server:
   port: 8089

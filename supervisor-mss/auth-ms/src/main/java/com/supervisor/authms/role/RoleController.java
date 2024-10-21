@@ -19,4 +19,10 @@ public class RoleController {
         return ResponseEntity.accepted().build();
     }
 
+    @GetMapping("/test")
+    @ResponseStatus(HttpStatus.OK)
+    public String test() {
+        return "Hello Test";
+    }
+
 }
