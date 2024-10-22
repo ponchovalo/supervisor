@@ -27,4 +27,11 @@ public class AuthController {
         return ResponseEntity.ok(authService.authenticate(request));
     }
 
+    @GetMapping("check-token")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<AuthenticationResponse> checkToken(
+            @RequestHeader("Authorization") String request){
+        return ResponseEntity.ok(authService.checkToken(request));
+    }
+
 }

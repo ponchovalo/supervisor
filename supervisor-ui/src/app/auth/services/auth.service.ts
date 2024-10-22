@@ -1,10 +1,11 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { environments } from '../../../environments/environments';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, Observable, of, tap, throwError } from 'rxjs';
 import { User } from '../interfaces/user.interface';
 import { AuthStatus } from '../interfaces/auth-status.enum';
 import { LoginResponse } from '../interfaces/login-response.interface';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,11 @@ export class AuthService {
   private _currentUser = signal<User|null>(null);
 
   //! Estado de la autenticacion mediante signals
-  private _authStatus = signal<AuthStatus>(AuthStatus.cheking);
+  public _authStatus = signal<AuthStatus>(AuthStatus.cheking);
+
+  constructor(){
+    this.checkAuthStatus().subscribe();
+  }
 
 
   //! Mundo exterior del servicio
@@ -38,11 +43,46 @@ export class AuthService {
           this._currentUser.set(user);
           this._authStatus.set(AuthStatus.authenticated);
           localStorage.setItem('token', token);
-          console.log({user, token})
         }),
         map(() => true),
         catchError(err => throwError(() => err.error))
       )
   }
+
+  checkAuthStatus(): Observable<boolean>{
+
+    const url = `${this.baseUrl}/identity/auth/check-token`
+    const token = localStorage.getItem('token');
+
+    if(!token){
+      this._authStatus.set(AuthStatus.notAuthenticated);
+      return of(false);
+    }
+    const jwtHelper = new JwtHelperService();
+    const isTokenExpired = jwtHelper.isTokenExpired(token);
+
+    if(isTokenExpired){
+      localStorage.clear();
+      return of(false);;
+    }
+
+    const headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${ token }`);
+
+    return this.http.get<LoginResponse>(url, {headers})
+      .pipe(
+        tap(({user, token}) => {
+          this._currentUser.set(user);
+          this._authStatus.set(AuthStatus.authenticated);
+          localStorage.setItem('token', token);
+        }),
+        map(() => true),
+        catchError(() => {
+          this._authStatus.set(AuthStatus.notAuthenticated);
+          return of(false)
+        })
+      )
+  }
+
 
 }

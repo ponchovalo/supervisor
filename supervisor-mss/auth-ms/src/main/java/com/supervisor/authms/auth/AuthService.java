@@ -52,11 +52,10 @@ public class AuthService {
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request){
-
         var auth = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword()));
         var claims = new HashMap<String, Object>();
         var user = ((User) auth.getPrincipal());
-        claims.put("fullName", user.fullName());
+        claims.put("email", user.getEmail());
         var jwtToken = jwtService.generateToken(claims, user);
 
         return AuthenticationResponse.builder()
@@ -69,7 +68,27 @@ public class AuthService {
                         .roles(user.getRoles().stream().map(m -> m.getName()).toList())
                         .build())
                 .build();
+    }
 
+    public AuthenticationResponse checkToken(String request){
+        var claims = new HashMap<String, Object>();
+        var token = request.substring("Bearer ".length());
+        var email = jwtService.extractEmail(token);
+        var user = userRepository.findByEmail(email).orElseThrow();
+        claims.put("email", user.getEmail());
+
+        var jwtToken = jwtService.generateToken(claims, user);
+
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .user(UserResponse.builder()
+                        .fullName(user.fullName())
+                        .email(user.getEmail())
+                        .area(user.getArea())
+                        .position(user.getPosition())
+                        .roles(user.getRoles().stream().map(m -> m.getName()).toList())
+                        .build())
+                .build();
     }
 
 

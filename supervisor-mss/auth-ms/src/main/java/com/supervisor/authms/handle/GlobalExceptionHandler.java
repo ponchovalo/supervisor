@@ -1,5 +1,6 @@
 package com.supervisor.authms.handle;
 
+import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -97,6 +98,18 @@ public class GlobalExceptionHandler {
                         ExceptionResponse.builder()
                                 .businessExceptionDescription("User already exist")
                                 .error("Error, entity duplicate")
+                                .build()
+                );
+    }
+
+    @ExceptionHandler(ExpiredJwtException.class)
+    public ResponseEntity<ExceptionResponse> handleException(ExpiredJwtException exp) {
+        return ResponseEntity
+                .status(BAD_REQUEST)
+                .body(
+                        ExceptionResponse.builder()
+                                .businessExceptionDescription("Token has Expired")
+                                .error("Token has Expired")
                                 .build()
                 );
     }

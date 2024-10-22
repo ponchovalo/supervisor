@@ -7,7 +7,7 @@ import { User } from '../../../auth/interfaces/user.interface';
   templateUrl: './indica-layout.component.html',
   styleUrl: './indica-layout.component.css'
 })
-export class IndicaLayoutComponent implements OnInit {
+export class IndicaLayoutComponent {
 
 
   private AuthService = inject(AuthService);
@@ -18,11 +18,6 @@ export class IndicaLayoutComponent implements OnInit {
     return this.AuthService.currentUser();
   }
 
-  ngOnInit(): void {
-
-    console.log("Get Started")
-
-  }
 
 
 
