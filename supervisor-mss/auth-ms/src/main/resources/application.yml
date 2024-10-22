@@ -17,6 +17,11 @@ spring:
   database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 
+eureka:
+  instance:
+    hostname: localhost
+
+
 application:
   security:
     jwt:

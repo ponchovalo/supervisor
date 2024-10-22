@@ -3,6 +3,7 @@ package com.supervisor.authms.auth;
 import com.supervisor.authms.enums.Area;
 import com.supervisor.authms.repositories.RoleRepository;
 import com.supervisor.authms.repositories.UserRepository;
+import com.supervisor.authms.role.Role;
 import com.supervisor.authms.security.JwtService;
 import com.supervisor.authms.user.User;
 import lombok.RequiredArgsConstructor;
@@ -58,7 +59,16 @@ public class AuthService {
         claims.put("fullName", user.fullName());
         var jwtToken = jwtService.generateToken(claims, user);
 
-        return AuthenticationResponse.builder().token(jwtToken).build();
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .user(UserResponse.builder()
+                        .fullName(user.fullName())
+                        .email(user.getEmail())
+                        .area(user.getArea())
+                        .position(user.getPosition())
+                        .roles(user.getRoles().stream().map(m -> m.getName()).toList())
+                        .build())
+                .build();
 
     }
 

@@ -1,7 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'indicadores',
+    loadChildren: () => import('./indicadores/indicadores.module').then(m => m.IndicadoresModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'auth'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

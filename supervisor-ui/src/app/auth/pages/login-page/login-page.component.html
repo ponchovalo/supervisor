@@ -1,0 +1,41 @@
+
+<p-toast />
+<form   class="p-card"
+        [formGroup]="myForm"
+        (ngSubmit)="login()"
+>
+
+
+  <div class="head-login">
+    <img class="img-login" alt="Card" src="../../../../assets/images/login.png" />
+    <h2 class="login-title">Reporte de Actividades</h2>
+  </div>
+
+  <div class="body-login">
+
+    <div class="input-login">
+        <span>Usuario</span>
+        <input  type="text"
+                pInputText
+                formControlName="username"
+                placeholder="Nombre de usuario"/>
+    </div>
+
+    <div class="input-login">
+        <span>Contraseña</span>
+        <input  type="password"
+                pInputText
+                formControlName="password"
+                placeholder="Ingrese su contraseña"/>
+    </div>
+
+    <div class="button-login">
+        <p-button   label="Login"
+                    [outlined]="true"
+                    severity="help"
+                    [disabled]="myForm.invalid"
+                    type="submit">
+        </p-button>
+    </div>
+</div>
+</form>

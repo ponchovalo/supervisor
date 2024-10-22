@@ -1,0 +1,21 @@
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./../../../../assets/images/bg-11.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.wrap-login100 {
+  width: 450px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
