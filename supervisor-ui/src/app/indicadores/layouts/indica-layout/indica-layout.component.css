@@ -1,0 +1,23 @@
+.contenedor {
+  display: grid;
+  min-height: 100dvh;
+  border: 1px, solid, red;
+  grid-template-rows: auto 1fr auto;
+}
+
+header{
+  height: 100px;
+  border: 1px, solid, red;
+}
+
+main{
+  border: 1px, solid, red;
+}
+
+footer{
+  height: 50px;
+  border: 1px, solid, red;
+}
+
+/* Para hacer el header tomr en cuenta el grid template para columnas indicando
+como se alinean las cosas */

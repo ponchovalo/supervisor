@@ -23,26 +23,25 @@ export class AppComponent {
 
   });
 
-  public authStatusChangeEffect = effect(() => {
-    switch( this.authService._authStatus() ) {
+  // public authStatusChangeEffect = effect(() => {
+  //   switch( this.authService._authStatus() ) {
 
-      case AuthStatus.cheking:
-        return;
+  //     case AuthStatus.cheking:
+  //       return;
 
-      case AuthStatus.authenticated:
-        const url = localStorage.getItem('url');
-        if(url){
-          this.router.navigateByUrl(url);
-        }
-        this.router.navigateByUrl('/indicadores')
+  //     case AuthStatus.authenticated:
+  //       const url = localStorage.getItem('url');
+  //       if(url){
+  //         this.router.navigateByUrl(url);
+  //       }
+  //       this.router.navigateByUrl('/indicadores')
 
-        return;
+  //       return;
 
-      case AuthStatus.notAuthenticated:
-        this.router.navigateByUrl('/auth/login');
-        return;
+  //     case AuthStatus.notAuthenticated:
+  //       this.router.navigateByUrl('/auth/login');
+  //       return;
+  //   }
+  // });
 
-    }
-
-  });
 }
