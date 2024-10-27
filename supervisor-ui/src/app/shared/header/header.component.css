@@ -23,6 +23,26 @@ img{
   width: 100%;
 }
 
+.action{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logout-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  border-radius: 0.5rem;
+  border: 1px solid #4dbed4;
+}
+
+.logout-btn:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #4bbbd1;
+}
+
 
 .cont-data-menu {
   height: 100%;
