@@ -1,0 +1,70 @@
+div {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  background-color: #092949;
+  color: #4dbed4;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.cont-logo{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+img{
+  width: 100%;
+}
+
+
+.cont-data-menu {
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.data {
+  display: flex;
+  justify-content: end;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cont-menu-bar {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.menu-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.menu-item:hover{
+  background-color: #4bbbd1;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+
+
+
+
