@@ -9,9 +9,13 @@ header{
 }
 
 main{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
 }
 
+
 footer{
+  border: 1px solid green;
   height: 50px;
 }
 

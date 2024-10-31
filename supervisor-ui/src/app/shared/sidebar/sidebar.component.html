@@ -1,0 +1,17 @@
+
+<div class="container">
+  <div class="cont-title">
+    <h3>{{title}}</h3>
+  </div>
+
+  <div class="cont-elements">
+    <div *ngFor="let item of indicadoresItems">
+      <div class="opt-item" [routerLink]="[item.link]" [routerLinkActive]="['is-active']">
+        <i [ngClass]="[item.icon]"></i><p>{{item.title}}</p>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+

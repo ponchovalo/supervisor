@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: () => import('./indicadores/indicadores.module').then(m => m.IndicadoresModule)
   },
   {
+    path: 'impresion',
+    loadChildren:() => import('./impresion/impresion.module').then(m => m.ImpresionModule)
+  },
+  {
     path: '**',
     redirectTo: 'indicadores'
   }

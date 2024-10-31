@@ -1,0 +1,23 @@
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  height: 100%;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  border: 1px solid red;
+  padding: 0.5rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid blue;
+}
