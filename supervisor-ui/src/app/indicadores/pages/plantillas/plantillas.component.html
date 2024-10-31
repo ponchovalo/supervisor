@@ -7,27 +7,46 @@
     <div class="actions">
       <p-button icon="pi pi-file-import" label="Importar desde *.csv"
                 outlined="true"
-                raised="true" />
+                raised="true"
+                severity="help"
+                size="small" />
       <p-button icon="pi pi-file-export" label="Exportar"
                 outlined="true"
-                raised="true" />
+                raised="true"
+                severity="help"
+                size="small" />
     </div>
   </div>
 
 
 
   <div class="filtros">
-    <!-- TODO
-     Filtros para partidas - dispositivos - tipos -->
+    <div class="categoria">
+      <div *ngFor="let partida of partidas" class="item">
+        <p>{{partida}}</p>
+      </div>
+    </div>
+    <div class="categoria">
+      <div *ngFor="let dispositivo of dispositivos" class="item">
+        <p>{{dispositivo}}</p>
+      </div>
+    </div>
   </div>
 
   <div class="search">
     <div class="field">
-      <label for="firstname1">Search</label>
-      <input id="firstname1" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+      <input  id="firstname1" type="text"
+              placeholder="Buscar:"
+              class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
     </div>
+    <p-button icon="pi pi-plus" label="Agregar +1"
+      outlined="true"
+      raised="true"
+      severity="help"
+      size="small" />
   </div>
-  <button class="p-button"> Agregar +1 </button>
+
+
   <div class="content">
 
   </div>

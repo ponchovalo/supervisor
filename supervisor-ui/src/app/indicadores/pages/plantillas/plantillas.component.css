@@ -4,9 +4,15 @@ div {
   padding: 0;
 }
 
+p{
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   height: 100%;
   padding: 0.5rem;
+  padding-bottom: 0;
   display: flex;
   flex-direction: column;
 }
@@ -22,4 +28,52 @@ div {
   justify-content: space-around;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+/* Estilos para el area de filtros */
+.filtros{
+  display: flex;
+  flex-direction: column;
+}
+.categoria {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+.item {
+  background-color: #CFF1F8;
+  color: #3a90a2;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
+  flex-grow: 1;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+}
+.item:hover {
+  background-color: #4DBED4;
+  color: #CFF1F8;
+  border: 0;
+}
+
+/* Estilos para la busqueda */
+.search {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: center;
+}
+.field {
+  width: 60%;
+  margin-right: 2rem;
+}
+
+/* Estilos del contenido */
+.content {
+  margin-top: 0.5rem;
+  height: 100%;
+  border: 1px solid #3a90a2;
 }
