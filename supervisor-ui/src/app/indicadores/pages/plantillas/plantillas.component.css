@@ -12,12 +12,14 @@ div {
 }
 
 .header {
-  border: 1px solid red;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
   padding: 0.5rem;
 }
 
 .actions {
   display: flex;
   justify-content: space-around;
-  border: 1px solid blue;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }

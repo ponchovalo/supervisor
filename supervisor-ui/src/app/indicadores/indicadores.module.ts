@@ -7,6 +7,7 @@ import { ActividadesComponent } from './pages/actividades/actividades.component'
 import { SharedModule } from '../shared/shared.module';
 import { PreventivosComponent } from './pages/preventivos/preventivos.component';
 import { PlantillasComponent } from './pages/plantillas/plantillas.component';
+import { PrimengModule } from '../primeng/primeng.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { PlantillasComponent } from './pages/plantillas/plantillas.component';
   imports: [
     CommonModule,
     IndicadoresRoutingModule,
-    SharedModule
+    SharedModule,
+    PrimengModule
   ]
 })
 export class IndicadoresModule { }
