@@ -16,12 +16,13 @@
                 severity="help"
                 size="small" />
     </div>
+
   </div>
 
-
+  <p-divider/>
 
   <div class="filtros">
-    <div class="categoria">
+    <div class="categoria mb-2">
       <div *ngFor="let partida of partidas" class="item">
         <p>{{partida}}</p>
       </div>
@@ -33,6 +34,7 @@
     </div>
   </div>
 
+  <p-divider/>
   <div class="search">
     <div class="field">
       <input  id="firstname1" type="text"

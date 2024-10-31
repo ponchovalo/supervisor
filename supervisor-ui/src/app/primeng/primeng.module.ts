@@ -6,6 +6,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
+import { DividerModule } from 'primeng/divider';
 
 
 @NgModule({
@@ -16,14 +17,16 @@ import { MessagesModule } from 'primeng/messages';
     ButtonModule,
     InputTextModule,
     ToastModule,
-    MessagesModule
+    MessagesModule,
+    DividerModule
   ],
   exports: [
     CardModule,
     ButtonModule,
     InputTextModule,
     ToastModule,
-    MessagesModule
+    MessagesModule,
+    DividerModule
   ]
 })
 export class PrimengModule { }
