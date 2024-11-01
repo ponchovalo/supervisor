@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { IndicadoresService } from '../../services/indicadores.service';
 
 @Component({
   selector: 'app-plantillas',
   templateUrl: './plantillas.component.html',
   styleUrl: './plantillas.component.css'
 })
-export class PlantillasComponent {
+export class PlantillasComponent implements OnInit {
 
   partidas: string[] = ['P-01', 'P-02', 'P-03',
                         'P-04', 'P-05', 'P-06',
@@ -14,6 +15,16 @@ export class PlantillasComponent {
 
 
   dispositivos: string[] = ['SWITCH', 'SERVIDOR', 'TELEFONO']
+
+  private indicadoresService = inject(IndicadoresService)
+
+  ngOnInit(): void {
+    this.indicadoresService.testToken();
+    this.indicadoresService.getParties().subscribe(data => {
+      console.log(data)
+    });
+  }
+
 
 
 

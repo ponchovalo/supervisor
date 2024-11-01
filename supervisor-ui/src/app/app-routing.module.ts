@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: 'indicadores',
-    //canActivate: [isAuthenticatedGuard],
+    canActivate: [isAuthenticatedGuard],
     loadChildren: () => import('./indicadores/indicadores.module').then(m => m.IndicadoresModule)
   },
   {

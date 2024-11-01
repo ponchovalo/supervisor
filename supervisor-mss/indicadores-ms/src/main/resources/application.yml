@@ -1,6 +1,9 @@
 #server:
 #  servlet:
 #    context-path: /api/v1/
+eureka:
+  instance:
+    hostname: localhost
 spring:
   application:
     name: indicadores-ms

@@ -50,6 +50,29 @@
 
 
   <div class="content">
+    <p-table
+        styleClass="p-datatable-gridlines p-datatable-sm">
+
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 5%;">Partida</th>
+            <th style="width: 15%;">Dispositivo</th>
+            <th style="width: 40%;">Descripcion del ticket</th>
+            <th style="width: 40%;">Descripcion del tecnico</th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body">
+          <tr>
+            <td>1</td>
+            <td>Equipo de computo</td>
+            <td>Falla en equipo de computo</td>
+            <td>FAlla en equipo de computo</td>
+          </tr>
+
+        </ng-template>
+
+    </p-table>
 
   </div>
 

@@ -75,3 +75,9 @@ p{
   height: 100%;
   border: 1px solid #3a90a2;
 }
+
+th {
+  margin: 0.2rem;
+  padding: 0.2rem;
+  text-align: center;
+}
