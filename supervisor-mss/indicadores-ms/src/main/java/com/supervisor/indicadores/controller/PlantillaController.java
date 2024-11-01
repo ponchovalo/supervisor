@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -41,7 +42,7 @@ public class PlantillaController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Plantilla> getAllPlantillas(){
-        return plantillaRepository.findAll();
+        return plantillaRepository.findAllOrdered();
     }
 
     @GetMapping("/partidas")

@@ -10,11 +10,11 @@ p{
 }
 
 .container {
-  height: 100%;
   padding: 0.5rem;
   padding-bottom: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto 1fr;
+  border: 1px solid red;
 }
 
 .header {
@@ -77,14 +77,18 @@ p{
 /* Estilos del contenido */
 .content {
   margin-top: 0.5rem;
-  height: 100%;
-  border: 1px solid #3a90a2;
+  height: 1vdh;
+  border: 1px solid green;
 }
 
 th {
   margin: 0.2rem;
   padding: 0.2rem;
   text-align: center;
+  font-size: small;
+}
+td{
+  font-size: x-small;
 }
 
 /* Estilos dialogo importar */

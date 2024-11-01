@@ -3,6 +3,7 @@ import { environments } from '../../../environments/environments';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Party } from '../interfaces/party.interface';
+import { Template } from '../interfaces/template.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +36,15 @@ export class IndicadoresService {
       .set('Authorization', `Bearer ${token}`.toString());
     //return this.http.post<number>(url, body, {headers});
     return of(69);
+  }
+
+  //? CARGAR PLANTILLAS
+  getTemplates(): Observable<Template[]>{
+    const url = `${this.baseUrl}/plantillas`;
+    const token: string | null = localStorage.getItem('token');
+    const headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`.toString());
+    return this.http.get<Template[]>(url, {headers});
   }
 
   //? CARGAR PARTIDAS

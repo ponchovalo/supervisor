@@ -1,11 +1,11 @@
 .container {
   display: grid;
-  min-height: 100dvh;
+  height: 100dvh;
   grid-template-rows: auto 1fr auto;
 }
 
 header{
-  height: 100px;
+  min-height: 100px;
 }
 
 main{

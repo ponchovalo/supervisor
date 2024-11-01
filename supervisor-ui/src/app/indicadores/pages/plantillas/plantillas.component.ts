@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { IndicadoresService } from '../../services/indicadores.service';
 import { Party } from '../../interfaces/party.interface';
+import { Template } from '../../interfaces/template.interface';
 
 @Component({
   selector: 'app-plantillas',
@@ -18,8 +19,8 @@ export class PlantillasComponent implements OnInit {
   selectedParty: string = '';
   selectedDevice: string = '';
 
+  templates: Template[] =[];
   parties: Party[] = [];
-
   devices: string[] = [];
 
   private indicadoresService = inject(IndicadoresService)
@@ -30,6 +31,13 @@ export class PlantillasComponent implements OnInit {
   // Inizializacion de datos
   loadAndPrintData(){
     this.getParties();
+    this.getTemplates();
+  }
+  getTemplates(){
+    this.indicadoresService.getTemplates().subscribe(templates => {
+      this.templates = templates
+      console.log(this.templates)
+    })
   }
   getParties(){
     this.indicadoresService.getParties().subscribe(parties => {

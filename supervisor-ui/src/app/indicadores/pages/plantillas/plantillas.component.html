@@ -23,7 +23,6 @@
                 severity="help"
                 size="small" />
     </div>
-
   </div>
 
   <p-divider/>
@@ -48,6 +47,7 @@
   </div>
 
   <p-divider/>
+
   <div class="search">
     <div class="field">
       <input  id="firstname1" type="text"
@@ -60,7 +60,10 @@
 
   <div class="content">
     <p-table
-        styleClass="p-datatable-gridlines p-datatable-sm">
+        styleClass="p-datatable-gridlines p-datatable-sm"
+        [value]="templates"
+        [scrollable]="true"
+        scrollHeight="48dvh">
 
         <ng-template pTemplate="header">
           <tr>
@@ -71,22 +74,21 @@
           </tr>
         </ng-template>
 
-        <ng-template pTemplate="body">
+        <ng-template pTemplate="body" let-template>
           <tr>
-            <td>1</td>
-            <td>Equipo de computo</td>
-            <td>Falla en equipo de computo</td>
-            <td>FAlla en equipo de computo</td>
+            <td style="text-align: center;">{{template.party_number | slice:7:10}}</td>
+            <td>{{template.device}}</td>
+            <td>{{template.ticket_description}}</td>
+            <td>{{template.tech_description}}</td>
           </tr>
 
         </ng-template>
 
     </p-table>
-
   </div>
 
   <!-- Componente del dialogo importar -->
-   <p-dialog [(visible)]="visibleImportDialog" [closable]="false">
+  <p-dialog [(visible)]="visibleImportDialog" [closable]="false">
 
     <ng-template pTemplate="header">
         <span>Importar Archivo</span>
@@ -122,8 +124,6 @@
       </div>
     </ng-template>
 
-   </p-dialog>
-
-
+  </p-dialog>
 
 </div>
