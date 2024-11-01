@@ -6,11 +6,18 @@
     </div>
     <div class="actions">
       <p-button icon="pi pi-file-import" label="Importar desde *.csv"
+                (onClick)="showImportDialog()"
                 outlined="true"
                 raised="true"
                 severity="help"
                 size="small" />
       <p-button icon="pi pi-file-export" label="Exportar"
+                outlined="true"
+                raised="true"
+                severity="help"
+                size="small"
+                [disabled]="true"/>
+      <p-button icon="pi pi-plus" label="Agregar +1"
                 outlined="true"
                 raised="true"
                 severity="help"
@@ -21,15 +28,21 @@
 
   <p-divider/>
 
+  <!--! TODO crear template para cuando no hay plantillas -->
+  <!--! TODO crear template para cuando no hay plantilla seleccionada -->
   <div class="filtros">
     <div class="categoria mb-2">
-      <div *ngFor="let partida of partidas" class="item">
-        <p>{{partida}}</p>
+      <div  *ngFor="let party of parties" class="item"
+            (click)="onSelectParty(party.party_number)"
+            [ngClass]="{'item-selected':party.party_number === selectedParty}">
+        <p>{{party.party_number}}</p>
       </div>
     </div>
     <div class="categoria">
-      <div *ngFor="let dispositivo of dispositivos" class="item">
-        <p>{{dispositivo}}</p>
+      <div  *ngFor="let device of devices" class="item"
+            (click)="onSelectDevice(device)"
+            [ngClass]="{'item-selected':device === selectedDevice}">
+        <p>{{device}}</p>
       </div>
     </div>
   </div>
@@ -41,11 +54,7 @@
               placeholder="Buscar:"
               class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
     </div>
-    <p-button icon="pi pi-plus" label="Agregar +1"
-      outlined="true"
-      raised="true"
-      severity="help"
-      size="small" />
+
   </div>
 
 
@@ -75,5 +84,46 @@
     </p-table>
 
   </div>
+
+  <!-- Componente del dialogo importar -->
+   <p-dialog [(visible)]="visibleImportDialog" [closable]="false">
+
+    <ng-template pTemplate="header">
+        <span>Importar Archivo</span>
+    </ng-template>
+
+    <div class="cont-dialog-import">
+      <input  type="file" style="display: none;" #fileUpload
+              (change)="onFileSelected($event)"/>
+      <div class="file-upload">
+        <span>{{ fileName || 'Seleccione un archivo'}}</span>
+        <p-button (click)="fileUpload.click()"
+                  icon="pi pi-paperclip"
+                  [rounded]="true"
+                  [outlined]="true"/>
+      </div>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <div class="action-dialog-import">
+          <p-button (onClick)="closeImportDialog()"
+                    icon="pi pi-times"
+                    [rounded]="true"
+                    [text]="true"
+                    severity="danger"
+                    size="small"/>
+          <p-button (onClick)="uploadPlantilla()"
+                    icon="pi pi-check"
+                    [rounded]="true"
+                    [text]="true"
+                    severity="success"
+                    size="small"
+                    [style]="['padding: 0;']"/>
+      </div>
+    </ng-template>
+
+   </p-dialog>
+
+
 
 </div>

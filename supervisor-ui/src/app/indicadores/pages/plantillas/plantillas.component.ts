@@ -1,5 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { IndicadoresService } from '../../services/indicadores.service';
+import { Party } from '../../interfaces/party.interface';
 
 @Component({
   selector: 'app-plantillas',
@@ -8,22 +9,73 @@ import { IndicadoresService } from '../../services/indicadores.service';
 })
 export class PlantillasComponent implements OnInit {
 
-  partidas: string[] = ['P-01', 'P-02', 'P-03',
-                        'P-04', 'P-05', 'P-06',
-                        'P-07', 'P-08', 'P-09',
-                        'P-10', 'P-11', 'P-12'];
+  // Variables importar plantillas
+  visibleImportDialog: boolean = false;
+  fileName: string = '';
+  formData = new FormData();
 
+  // Variables para filtro
+  selectedParty: string = '';
+  selectedDevice: string = '';
 
-  dispositivos: string[] = ['SWITCH', 'SERVIDOR', 'TELEFONO']
+  parties: Party[] = [];
+
+  devices: string[] = [];
 
   private indicadoresService = inject(IndicadoresService)
 
   ngOnInit(): void {
-    this.indicadoresService.testToken();
-    this.indicadoresService.getParties().subscribe(data => {
-      console.log(data)
+    this.loadAndPrintData();
+  }
+  // Inizializacion de datos
+  loadAndPrintData(){
+    this.getParties();
+  }
+  getParties(){
+    this.indicadoresService.getParties().subscribe(parties => {
+      this.parties = parties;
     });
   }
+  getDevices(party: string){
+    this.indicadoresService.getDevices(party).subscribe(devices => {
+      this.devices = devices;
+    })
+  }
+
+  // Filtrar Plantillas
+  onSelectParty(party:string){
+    this.selectedParty = party;
+    this.getDevices(party);
+    //! TODO metodo para filtrar plantillas por partida
+  }
+  onSelectDevice(device: string){
+    this.selectedDevice = device;
+  }
+
+
+  // Importar Archivo de plantillas
+  showImportDialog(){
+    this.visibleImportDialog = true;
+  }
+  closeImportDialog(){
+    this.visibleImportDialog = false;
+    this.formData.delete('file');
+    this.fileName = '';
+  }
+  onFileSelected(event:any){
+    const file: File = event.target.files[0];
+    if(file){
+      this.fileName = file.name;
+      this.formData.append('file', file);
+    }
+  }
+  uploadPlantilla(){
+    this.indicadoresService.importPlantila(this.formData).subscribe(data => {
+      console.log(data);
+      this.closeImportDialog()
+    })
+  }
+
 
 
 

@@ -68,7 +68,6 @@ export class AuthService {
 
     const headers = new HttpHeaders()
       .set('Authorization', `Bearer ${ token }`);
-      console.log({headers})
 
     return this.http.get<LoginResponse>(url, {headers})
       .pipe(

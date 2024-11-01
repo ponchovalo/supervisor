@@ -56,6 +56,11 @@ p{
   color: #CFF1F8;
   border: 0;
 }
+.item-selected {
+  background-color: #4DBED4;
+  color: #CFF1F8;
+  border: 0;
+}
 
 /* Estilos para la busqueda */
 .search {
@@ -81,3 +86,20 @@ th {
   padding: 0.2rem;
   text-align: center;
 }
+
+/* Estilos dialogo importar */
+.cont-dialog-import{
+  width: 250px;
+}
+.file-upload{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.action-dialog-import {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+

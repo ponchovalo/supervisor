@@ -8,6 +8,7 @@ import { ToastModule } from 'primeng/toast';
 import { MessagesModule } from 'primeng/messages';
 import { DividerModule } from 'primeng/divider';
 import { TableModule } from 'primeng/table';
+import { DialogModule } from 'primeng/dialog';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { TableModule } from 'primeng/table';
     ToastModule,
     MessagesModule,
     DividerModule,
-    TableModule
+    TableModule,
+    DialogModule
   ],
   exports: [
     CardModule,
@@ -29,7 +31,8 @@ import { TableModule } from 'primeng/table';
     ToastModule,
     MessagesModule,
     DividerModule,
-    TableModule
+    TableModule,
+    DialogModule
   ]
 })
 export class PrimengModule { }
