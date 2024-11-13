@@ -1,1 +1,89 @@
-<p>actividades works!</p>
+<div class="container">
+
+  <div class="header">
+    <div class="title">
+      <h3>Registro de Actividades</h3>
+    </div>
+    <div class="actions">
+
+      <div class="campo">
+        <p-calendar [style]="{'min-width':'100%'}" />
+      </div>
+
+      <div class="campo">
+        <p-dropdown
+          [style]="{'width':'100%'}"
+          optionLabel="name"
+          placeholder="Turno" />
+      </div>
+
+      <div class="campo">
+        <p-button icon="pi pi-file-import" label="Importar desde *.csv"
+                [style]="{'width':'100%'}"
+                outlined="true"
+                raised="true"
+                severity="help"
+                size="small" />
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <div class="validate">
+
+    <div class="card">
+      <div class="mb-1"><small>Progreso del dia:</small></div>
+      <p-progressBar class="mt-5" [value]="50" />
+    </div>
+    <span><small>Faltan <strong>6hrs</strong>  para completar el dia</small></span>
+  </div>
+
+  <div class="content">
+    <p-table  scrollable="true"
+              scrollHeight="60vh"
+              [value]="actividades"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th [style]="{'font-size':'smaller',
+                        'padding':'0.5rem',
+                        'text-align':'center',
+                        'width':'7%'}">Hora Inicial</th>
+          <th [style]="{'font-size':'smaller',
+                        'padding':'0.5rem',
+                        'text-align':'center',
+                        'width':'7%'}">Hora Final</th>
+          <th [style]="{'font-size':'smaller',
+                        'padding':'0.5rem',
+                        'text-align':'center',
+                        'width':'9%'}">Tipo de Actividad</th>
+          <th [style]="{'font-size':'smaller',
+                        'padding':'0.5rem',
+                        'width':'67%'}">Descripcion</th>
+          <th [style]="{'font-size':'smaller',
+                        'padding':'0.5rem',
+                        'width':'10%'}">Acciones</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-act>
+        <tr>
+          <td [style]="{'font-size':'smaller',
+                        'padding':'0.5rem',
+                        'text-align':'center'}">{{act.inicio}}</td>
+          <td [style]="{'font-size':'smaller',
+                        'padding':'0.5rem',
+                        'text-align':'center'}">{{act.fin}}</td>
+          <td [style]="{'font-size':'smaller',
+                        'padding':'0.5rem',
+                        'text-align':'center'}">{{act.tipo}}</td>
+          <td [style]="{'font-size':'smaller',
+                        'padding':'0.5rem'}">{{act.desc}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+
+</div>

@@ -1,12 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import "primeflex/primeflex.css";
-@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/themes/aura-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 
-
 body, html {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   height: 100%;
 }
+input{
+  font-size: smaller;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+table td > span{
+  font-size: small;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+table th > span{
+  font-size: small;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+
+

@@ -1,0 +1,52 @@
+div h3{
+  padding: 0;
+  margin: 0;
+}
+
+
+.container {
+  padding: 0.5rem;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+}
+
+/* Estilos para el header */
+.header{
+  height: 80px;
+}
+.title{
+  height: 40%;
+  align-content: center;
+}
+.actions{
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.campo{
+  width: 20%;
+}
+
+/* Estilos para la validacion */
+.validate{
+  background-color: #cff1f8;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.8rem;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.card{
+  padding: 0;
+  width: 80%;
+}
+
+/* Estilos del contenido de la tabla */
+
+
+

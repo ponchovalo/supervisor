@@ -12,15 +12,11 @@ p{
 .container {
   padding: 0.5rem;
   padding-bottom: 0;
-  display: grid;
-  grid-template-rows: auto auto auto auto auto 1fr;
-  border: 1px solid red;
 }
 
 .header {
-  border-radius: 0.5rem;
   padding: 0.5rem;
-  padding-bottom: 0;
+  padding-bottom: 0.5rem;
 }
 
 .actions {
@@ -77,8 +73,6 @@ p{
 /* Estilos del contenido */
 .content {
   margin-top: 0.5rem;
-  height: 1vdh;
-  border: 1px solid green;
 }
 
 th {

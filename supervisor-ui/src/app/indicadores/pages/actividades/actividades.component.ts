@@ -7,4 +7,30 @@ import { Component } from '@angular/core';
 })
 export class ActividadesComponent {
 
+  actividades: any[] = [
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'},
+    { inicio: '7:00', fin: '8:00', tipo: 'atencion', desc: 'revision de equipo'}
+
+  ]
+
 }

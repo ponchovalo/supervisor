@@ -9,6 +9,9 @@ import { MessagesModule } from 'primeng/messages';
 import { DividerModule } from 'primeng/divider';
 import { TableModule } from 'primeng/table';
 import { DialogModule } from 'primeng/dialog';
+import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
+import { ProgressBarModule } from 'primeng/progressbar';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { DialogModule } from 'primeng/dialog';
     MessagesModule,
     DividerModule,
     TableModule,
-    DialogModule
+    DialogModule,
+    CalendarModule,
+    DropdownModule,
+    ProgressBarModule
   ],
   exports: [
     CardModule,
@@ -32,7 +38,10 @@ import { DialogModule } from 'primeng/dialog';
     MessagesModule,
     DividerModule,
     TableModule,
-    DialogModule
+    DialogModule,
+    CalendarModule,
+    DropdownModule,
+    ProgressBarModule
   ]
 })
 export class PrimengModule { }

@@ -61,16 +61,15 @@
   <div class="content">
     <p-table
         styleClass="p-datatable-gridlines p-datatable-sm"
-        [value]="templates"
-        [scrollable]="true"
-        scrollHeight="48dvh">
+        [value]="templates">
 
         <ng-template pTemplate="header">
           <tr>
             <th style="width: 5%;">Partida</th>
-            <th style="width: 15%;">Dispositivo</th>
-            <th style="width: 40%;">Descripcion del ticket</th>
-            <th style="width: 40%;">Descripcion del tecnico</th>
+            <th style="width: 10%;">Dispositivo</th>
+            <th style="width: 10%;">Actividad</th>
+            <th style="width: 25%;">Descripcion del ticket</th>
+            <th style="width: 50%;">Descripcion del tecnico</th>
           </tr>
         </ng-template>
 
@@ -78,6 +77,7 @@
           <tr>
             <td style="text-align: center;">{{template.party_number | slice:7:10}}</td>
             <td>{{template.device}}</td>
+            <td>{{template.activity_type}}</td>
             <td>{{template.ticket_description}}</td>
             <td>{{template.tech_description}}</td>
           </tr>
@@ -85,6 +85,10 @@
         </ng-template>
 
     </p-table>
+  </div>
+
+  <div class="footer">
+    <span>Footer paginacion</span>
   </div>
 
   <!-- Componente del dialogo importar -->
